@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Bott</title>
+<meta name="description" content="Matthew Bott – revenue-focused marketing leader in Dubai. Strategy, demand generation and RevOps across the GCC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout idea: a pipeline report. Each section is a stage; mono labels act like report columns. */
+  --paper: #FBFCFA;
+  --surface: #FFFFFF;
+  --ink: #13202A;
+  --muted: #536170;
+  --line: #E1E6E4;
+  --accent: #057F6B;
+  --pop: #12C7A3;
+  --tint: #E3F8F2;
+  --signal: #F0A12E;
+  --signal-tint: #FFF3DF;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1A20;
+    --surface: #16242C;
+    --ink: #F1F5F4;
+    --muted: #A3B2BC;
+    --line: #26363F;
+    --accent: #3DDBB9;
+    --pop: #2FE0BC;
+    --tint: #123A35;
+    --signal: #FFB648;
+    --signal-tint: #3A2C14;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1A20;
+  --surface: #16242C;
+  --ink: #F1F5F4;
+  --muted: #A3B2BC;
+  --line: #26363F;
+  --accent: #3DDBB9;
+  --pop: #2FE0BC;
+  --tint: #123A35;
+  --signal: #FFB648;
+  --signal-tint: #3A2C14;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* Top bar */
+.top {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 22px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: 13px; color: var(--muted);
+}
+.top nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--accent); }
+.mark { color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -.01em; }
+
+/* Hero */
+.hero-band {
+  background:
+    radial-gradient(60% 80% at 92% 10%, color-mix(in srgb, var(--signal) 22%, transparent), transparent 70%),
+    radial-gradient(70% 90% at 0% 0%, var(--tint), transparent 70%);
+  border-bottom: 1px solid var(--line);
+}
+.hero { padding: 72px 0 56px; display: grid; gap: 28px; }
+.label {
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin: 0;
+}
+.label b { color: var(--accent); font-weight: 500; }
+h1 {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: .95; letter-spacing: -.035em; margin: 0;
+  text-wrap: balance;
+}
+.tagline {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(26px, 3.6vw, 44px); line-height: 1.1; letter-spacing: -.02em;
+  margin: -6px 0 0; text-wrap: balance;
+}
+.tagline .tail { color: var(--accent); }
+.lede { max-width: 60ch; font-size: 20px; color: var(--ink); margin: 0; }
+.lede span { color: var(--muted); }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 20px; border-radius: 999px; text-decoration: none;
+  font-weight: 600; font-size: 15px;
+  background: var(--ink); color: var(--paper);
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { background: var(--accent); box-shadow: 0 6px 20px color-mix(in srgb, var(--pop) 35%, transparent); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+/* Pipeline strip: the signature element */
+.pipeline {
+  margin: 40px 0 0; display: grid; grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface);
+}
+.stage { padding: 18px 18px 20px; border-right: 1px solid var(--line); position: relative; }
+.stage:last-child { border-right: 0; }
+.stage .n { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.stage .t { font-family: var(--display); font-weight: 600; font-size: 19px; margin-top: 6px; line-height: 1.2; }
+.stage .bar { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--pop)); margin-top: 14px; transform-origin: left; }
+.stage:last-child .bar { background: var(--signal); }
+.stage:last-child .t { color: var(--signal); }
+@media (prefers-reduced-motion: no-preference) {
+  .stage .bar { animation: grow .9s cubic-bezier(.2,.7,.2,1) both; }
+  .stage:nth-child(2) .bar { animation-delay: .08s; }
+  .stage:nth-child(3) .bar { animation-delay: .16s; }
+  .stage:nth-child(4) .bar { animation-delay: .24s; }
+  .stage:nth-child(5) .bar { animation-delay: .32s; }
+  @keyframes grow { from { transform: scaleX(.15); } to { transform: scaleX(1); } }
+}
+
+/* Sections */
+section { padding: 80px 0 0; }
+.sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: baseline; margin-bottom: 36px; }
+h2 {
+  font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.05; letter-spacing: -.02em; margin: 0; text-wrap: balance;
+}
+
+/* Proof numbers */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 3px solid var(--pop); }
+.stat { padding: 22px 20px 4px 0; }
+.stat .v { color: var(--accent);
+  font-family: var(--display); font-weight: 800; font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums;
+}
+.stat .v small { font-size: .5em; letter-spacing: 0; }
+.stat p { margin: 10px 0 0; color: var(--muted); font-size: 15px; max-width: 26ch; }
+
+/* Capabilities */
+.caps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.cap { background: var(--surface); border-top: 3px solid transparent; transition: border-color .2s ease; padding: 28px; display: grid; gap: 10px; align-content: start; }
+.cap:hover { border-top-color: var(--pop); }
+.cap h3 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.01em; }
+.cap p { margin: 0; color: var(--muted); }
+.cap .k { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+
+/* Case studies */
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 18px; align-content: start; }
+.case-top { display: grid; gap: 8px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.case h3 { font-family: var(--display); font-weight: 600; font-size: 21px; margin: 0; line-height: 1.25; letter-spacing: -.01em; text-wrap: balance; }
+.case .k { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+.case dl { margin: 0; display: grid; gap: 6px; }
+.case dt { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+.case dt:first-child { margin-top: 0; }
+.case dd { margin: 0; font-size: 15.5px; }
+.case dd.res { font-weight: 500; padding: 10px 12px; border-left: 3px solid var(--signal); background: var(--signal-tint); border-radius: 0 8px 8px 0; }
+
+/* Experience */
+.roles { border-top: 1px solid var(--line); }
+.role {
+  display: grid; grid-template-columns: 220px 1fr; gap: 32px;
+  padding: 26px 0; border-bottom: 1px solid var(--line);
+}
+.role .when { font-family: var(--mono); font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.role .when .loc { display: block; margin-top: 4px; }
+.role h3 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.01em; line-height: 1.25; }
+.role h3 .co { color: var(--accent); }
+.role p { margin: 8px 0 0; color: var(--muted); max-width: 66ch; }
+.role .win {
+  display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 500;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--signal-tint); color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--signal) 40%, transparent);
+}
+.role.now h3::after {
+  content: "Current"; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 2px 8px;
+  margin-left: 10px; vertical-align: 4px;
+}
+
+/* Toolkit + route */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+.panel h3 { margin: 0 0 16px; font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 14.5px; padding: 7px 13px; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--pop) 35%, transparent); background: var(--tint); }
+.route { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.route li { display: grid; grid-template-columns: 18px 1fr; gap: 14px; position: relative; padding-bottom: 18px; }
+.route li:last-child { padding-bottom: 0; }
+.route li::before { content: ""; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--accent); margin-top: 7px; background: var(--surface); position: relative; z-index: 1; }
+.route li:last-child::before { background: var(--accent); }
+.route li:not(:last-child)::after { content: ""; position: absolute; left: 6.5px; top: 20px; bottom: -6px; width: 2px; background: var(--line); }
+.route strong { font-family: var(--display); font-weight: 600; font-size: 18px; display: block; line-height: 1.3; }
+.route span { color: var(--muted); font-size: 15px; }
+
+/* Contact */
+.contact {
+  margin: 96px 0 0; padding: 56px 0; border-top: 3px solid var(--pop);
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: end;
+}
+.contact h2 { font-size: clamp(34px, 5vw, 60px); }
+.contact p { color: var(--muted); margin: 0 0 20px; max-width: 46ch; }
+footer { padding: 24px 0 40px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .pipeline { grid-template-columns: 1fr 1fr; }
+  .stage { border-bottom: 1px solid var(--line); }
+  .stage:nth-child(2n) { border-right: 0; }
+  .stage:last-child { grid-column: 1 / -1; border-bottom: 0; }
+  .sec-head, .role { grid-template-columns: 1fr; gap: 10px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .caps, .split, .contact, .cases { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 18px; }
+  .top nav { display: none; }
+  .hero { padding-top: 48px; }
+  .lede { font-size: 18px; }
+  .cap, .panel { padding: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="mark">Matthew Bott</span>
+    <nav aria-label="Sections">
+      <a href="#work">What I do</a>
+      <a href="#experience">Experience</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <div class="hero-band"><div class="wrap">
+    <div class="hero">
+      <p class="label"><b>Marketing Manager, Middle East</b> &nbsp;·&nbsp; CSP Group &nbsp;·&nbsp; Dubai</p>
+      <h1>Matthew Bott</h1>
+      <p class="tagline">Marketing you can trace to <span class="tail">revenue.</span></p>
+      <p class="lede">I run marketing as a revenue function across the GCC: strategy, demand generation, paid media, outbound, CRM and reporting. <span>Every campaign should show up in pipeline and closed business, not just leads and clicks.</span></p>
+      <div class="cta">
+        <a class="btn" href="https://www.linkedin.com/in/matthewebott/">Connect on LinkedIn <span aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="#experience">See my experience</a>
+      </div>
+
+      <div class="pipeline" aria-label="The funnel I own, from strategy to revenue">
+        <div class="stage"><div class="n">01</div><div class="t">Strategy</div><div class="bar" style="width:100%"></div></div>
+        <div class="stage"><div class="n">02</div><div class="t">Demand gen</div><div class="bar" style="width:84%"></div></div>
+        <div class="stage"><div class="n">03</div><div class="t">Lead routing &amp; scoring</div><div class="bar" style="width:62%"></div></div>
+        <div class="stage"><div class="n">04</div><div class="t">Sales handoff</div><div class="bar" style="width:44%"></div></div>
+        <div class="stage"><div class="n">05</div><div class="t">Closed revenue</div><div class="bar" style="width:30%"></div></div>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="wrap">
+    <section aria-labelledby="proof-h">
+      <div class="sec-head">
+        <p class="label">Track record</p>
+        <h2 id="proof-h">A decade of connecting campaigns to commercial results</h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">+84<small>%</small></div><p>Lead conversion uplift from the data programme I led at Nestlé Professional</p></div>
+        <div class="stat"><div class="v">£10M<small>+</small></div><p>Incremental revenue linked to that same programme</p></div>
+        <div class="stat"><div class="v">3</div><p>Markets worked in: the UK, Southeast Asia and the GCC</p></div>
+        <div class="stat"><div class="v">10<small>+ yrs</small></div><p>In B2B marketing, marketing operations and business development</p></div>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-h">
+      <div class="sec-head">
+        <p class="label">What I do</p>
+        <h2 id="work-h">Strategy and data are where I add the most value</h2>
+      </div>
+      <div class="caps">
+        <div class="cap">
+          <span class="k">Strategy</span>
+          <h3>Regional marketing strategy</h3>
+          <p>Annual plans built around pipeline and revenue targets, shaped by how buyers in the GCC research, evaluate and commit, rather than a playbook imported from elsewhere.</p>
+        </div>
+        <div class="cap">
+          <span class="k">Demand</span>
+          <h3>Demand generation</h3>
+          <p>Paid media, email, events and outbound prospecting run alongside sales, measured on lead quality, conversion and deal progression.</p>
+        </div>
+        <div class="cap">
+          <span class="k">RevOps</span>
+          <h3>CRM and marketing automation</h3>
+          <p>Lead scoring, routing, lifecycle stages and the marketing-to-sales handoff. I fix the gaps between teams that quietly leak revenue.</p>
+        </div>
+        <div class="cap">
+          <span class="k">Reporting</span>
+          <h3>Attribution and ROI</h3>
+          <p>Dashboards tracking pipeline, CAC and funnel conversion, used to move budget to the channels that actually drive revenue.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" aria-labelledby="cases-h">
+      <div class="sec-head">
+        <p class="label">Case studies</p>
+        <h2 id="cases-h">Three projects, in brief</h2>
+      </div>
+      <div class="cases">
+        <article class="case">
+          <div class="case-top">
+            <span class="k">Turtl</span>
+            <h3>From content platform to intent data platform</h3>
+          </div>
+          <dl>
+            <dt>Starting point</dt>
+            <dd>Turtl began as a way to publish and view documents online. Useful, but hard to tie to revenue.</dd>
+            <dt>What changed</dt>
+            <dd>I helped lead the shift to tracking how each reader engaged with content and mapping that activity straight into the CRM.</dd>
+            <dt>Result</dt>
+            <dd class="res">Customers gained first-party intent data their sales teams could act on, and Turtl was repositioned as an intent data platform.</dd>
+          </dl>
+        </article>
+        <article class="case">
+          <div class="case-top">
+            <span class="k">The Customization Group</span>
+            <h3>Go-to-market for a new corporate division</h3>
+          </div>
+          <dl>
+            <dt>Starting point</dt>
+            <dd>A new MerchOne Corporate division needed a route to market and the systems to measure it.</dd>
+            <dt>What changed</dt>
+            <dd>I wrote the full go-to-market strategy, implemented HubSpot for the GCC, and led marketing attribution and reporting.</dd>
+            <dt>Result</dt>
+            <dd class="res">The division launched into key enterprise markets with reporting that tied campaigns to pipeline from day one.</dd>
+          </dl>
+        </article>
+        <article class="case">
+          <div class="case-top">
+            <span class="k">Nestlé Professional</span>
+            <h3>Turning sales and marketing data-driven</h3>
+          </div>
+          <dl>
+            <dt>Starting point</dt>
+            <dd>The UK&amp;I funnel ran on data that was patchy and rarely used to guide decisions.</dd>
+            <dt>What changed</dt>
+            <dd>I founded and ran the UK Data Think Tank, improving data quality in the CRM and building Power BI dashboards for sales and campaigns.</dd>
+            <dt>Result</dt>
+            <dd class="res">Lead conversion rose 84% and revenue grew by more than £10M.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="exp-h">
+      <div class="sec-head">
+        <p class="label">Experience</p>
+        <h2 id="exp-h">From Jakarta to London to Dubai</h2>
+      </div>
+      <div class="roles">
+        <article class="role now">
+          <div class="when">Nov 2026 – now<span class="loc">GCC</span></div>
+          <div>
+            <h3>Marketing Manager, Middle East · <span class="co">CSP Group</span></h3>
+            <p>Leading marketing across the GCC with full ownership of strategy, budget, demand generation and marketing operations, reporting to senior leadership on pipeline and revenue contribution.</p>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Jun 2025 – Oct 2026<span class="loc">Dubai</span></div>
+          <div>
+            <h3>Marketing and Automation Manager · <span class="co">The Customization Group</span></h3>
+            <p>Led B2B marketing for the MerchOne division across EMEA and the US, using AI and automation for demand generation, HubSpot CRM and ROI reporting, and leading a cross-regional team.</p>
+            <span class="win">Built and launched the go-to-market for MerchOne Corporate in EMEA and the US</span>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Sep 2023 – Jun 2025<span class="loc">Dubai, remote</span></div>
+          <div>
+            <h3>Head of Marketing Operations · <span class="co">Turtl</span></h3>
+            <p>Ran end-to-end campaigns and marketing analytics, and led the implementation, audit and upkeep of HubSpot to improve CRM processes, data quality and automation.</p>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Dec 2018 – Sep 2023<span class="loc">London &amp; Crawley, UK</span></div>
+          <div>
+            <h3>Technical CRM Manager &amp; Lead Management Specialist · <span class="co">Nestlé Professional</span></h3>
+            <p>Owned the UK&amp;I marketing and sales funnel: lead nurturing, account-based marketing, SAP C4C and Adobe Campaign, and Power BI dashboards for sales and campaign performance. Member of the B2B leadership team.</p>
+            <span class="win">Founded the UK Data Think Tank: +84% conversion and £10M+ revenue</span>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when">Aug 2012 – Nov 2018<span class="loc">Jakarta, Indonesia</span></div>
+          <div>
+            <h3>Head of Inbound Marketing &amp; Business Development · <span class="co">InboundID, Ydigital Asia, PIPI</span></h3>
+            <p>Built inbound marketing services and sales processes for clients across Southeast Asia, working with partners including Google, Facebook and HubSpot.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="toolkit" aria-labelledby="tool-h">
+      <div class="sec-head">
+        <p class="label">Toolkit</p>
+        <h2 id="tool-h">The systems behind the funnel</h2>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>Platforms I work in</h3>
+          <div class="chips">
+            <span class="chip">HubSpot</span>
+            <span class="chip">Marketo</span>
+            <span class="chip">Adobe Campaign</span>
+            <span class="chip">SAP C4C</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Looker Studio</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Paid social &amp; search</span>
+            <span class="chip">AI &amp; automation</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Background</h3>
+          <ul class="route">
+            <li><div><strong>Lancaster University</strong><span>Education</span></div></li>
+            <li><div><strong>Jakarta</strong><span>Six years building inbound marketing in Southeast Asia</span></div></li>
+            <li><div><strong>London</strong><span>Nearly five years in B2B marketing and CRM at Nestlé</span></div></li>
+            <li><div><strong>Dubai</strong><span>Leading marketing and RevOps across the GCC</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <div>
+        <p class="label">Contact</p>
+        <h2 id="contact-h">Working in marketing or sales in the region? Let's talk.</h2>
+      </div>
+      <div>
+        <p>I'm always glad to connect with people in marketing, sales and business development across the GCC.</p>
+        <a class="btn" href="https://www.linkedin.com/in/matthewebott/">Message me on LinkedIn <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Matthew Bott</span>
+    <span>Dubai, United Arab Emirates</span>
+  </footer>
+
+</div>
+</body>
+</html>
